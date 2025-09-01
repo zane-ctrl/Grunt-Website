@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,111 +11,168 @@
       font-family: 'Inter', sans-serif;
       background-color: #0f0f0f;
       color: #fdfbf7;
-      line-height: 1.6;
     }
+
     header {
-      padding: 20px 60px;
+      padding: 20px 40px;
       background-color: #000;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #222;
     }
+
     .logo {
       display: flex;
       align-items: center;
     }
+
+    .logo img {
+      height: 50px;
+      margin-right: 12px;
+    }
+
     .logo span {
       font-size: 24px;
       font-weight: 700;
       color: #556b2f;
-      margin-left: 10px;
     }
-    nav a {
+
+    .menu-icon {
+      font-size: 28px;
+      color: #fdfbf7;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #111;
+      padding: 40px 20px;
+      transition: right 0.3s ease;
+      z-index: 1000;
+    }
+
+    .sidebar a {
+      display: block;
       color: #fdfbf7;
       text-decoration: none;
-      margin-left: 24px;
-      font-weight: 500;
+      margin: 20px 0;
+      font-size: 18px;
     }
-    .section {
-      padding: 140px 40px;
+
+    .sidebar.open {
+      right: 0;
+    }
+
+    .pricing-section {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .pricing-section h1 {
+      font-size: 38px;
+      color: #556b2f;
+      margin-bottom: 40px;
       text-align: center;
     }
-    .section h2 {
-      font-size: 36px;
-      color: #556b2f;
-      margin-bottom: 30px;
-    }
-    .pricing-table {
+
+    .pricing-cards {
       display: flex;
-      justify-content: center;
-      gap: 40px;
+      justify-content: space-around;
       flex-wrap: wrap;
+      gap: 30px;
     }
-    .plan {
-      background-color: #1c1c1c;
+
+    .card {
+      background-color: #1a1a1a;
       padding: 30px;
-      border-radius: 10px;
-      width: 280px;
-      border: 2px solid #556b2f;
+      border-radius: 12px;
+      width: 300px;
+      border: 1px solid #333;
+      transition: 0.3s;
     }
-    .plan h3 {
+
+    .card:hover {
+      border-color: #556b2f;
+    }
+
+    .card h2 {
       font-size: 24px;
-      margin-bottom: 10px;
-    }
-    .plan p {
-      font-size: 16px;
-      color: #bbb;
-    }
-    .price {
-      font-size: 28px;
-      margin: 20px 0;
+      margin-bottom: 16px;
       color: #fdfbf7;
+    }
+
+    .card p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    .card .price {
+      font-size: 28px;
+      font-weight: bold;
+      color: #556b2f;
     }
   </style>
 </head>
 <body>
 
+<!-- Header with Hamburger -->
 <header>
   <div class="logo">
-    <img src="GRUNT-logo.jpg"
+    <img src="images/grunt-logo.png" alt="GRUNT Logo" />
+    <span>GRUNT</span>
   </div>
-    <div class="hamburger" onclick="toggleSidebar()">☰</div>
-  </header>
-
-  <div class="sidebar" id="sidebar">
-    <div class="close-btn" onclick="toggleSidebar()">×</div>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="services.html">Services</a>
-    <a href="#contact">Contact</a>
-  </div>
+  <div class="menu-icon" onclick="toggleSidebar()">☰</div>
 </header>
 
-<section class="section">
-  <h2>Pricing Plans</h2>
-  <div class="pricing-table">
-    <div class="plan">
-      <h3>Starter</h3>
-      <p>Great for individuals or small teams</p>
-      <div class="price">$499/mo</div>
-      <p>• 1 Assistant<br>• Inbox + Calendar<br>• Basic follow-up</p>
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- Page Content -->
+<section class="pricing-section">
+  <h1>Our Pricing</h1>
+  <div class="pricing-cards">
+
+    <div class="card">
+      <h2>Starter</h2>
+      <p>Perfect for solo founders or busy professionals who need one assistant.</p>
+      <div class="price">$299 / month</div>
     </div>
-    <div class="plan">
-      <h3>Pro</h3>
-      <p>Designed for growing teams</p>
-      <div class="price">$999/mo</div>
-      <p>• 2 Assistants<br>• CRM integration<br>• Custom workflows</p>
+
+    <div class="card">
+      <h2>Growth</h2>
+      <p>Great for teams of 3-10. We build multiple assistants and integrate them with your workflows.</p>
+      <div class="price">$799 / month</div>
     </div>
-    <div class="plan">
-      <h3>Enterprise</h3>
-      <p>Full-service automation at scale</p>
-      <div class="price">Custom</div>
-      <p>• Unlimited Assistants<br>• White-glove setup<br>• Dedicated operator</p>
+
+    <div class="card">
+      <h2>Enterprise</h2>
+      <p>Fully customized AI ops support with team training, voice matching, and daily workflow management.</p>
+      <div class="price">Custom Quote</div>
     </div>
+
   </div>
 </section>
+
+<!-- Sidebar Script -->
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    sidebar.classList.toggle("open");
+  }
+</script>
 
 </body>
 </html>
