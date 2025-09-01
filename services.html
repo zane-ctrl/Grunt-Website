@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,51 +11,97 @@
       font-family: 'Inter', sans-serif;
       background-color: #0f0f0f;
       color: #fdfbf7;
-      line-height: 1.6;
     }
+
     header {
-      padding: 20px 60px;
       background-color: #000;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 20px 30px;
       border-bottom: 1px solid #222;
+      position: relative;
     }
+
     .logo {
       display: flex;
       align-items: center;
     }
+
     .logo span {
       font-size: 24px;
       font-weight: 700;
-      color: #556b2f;
+      color: #6b8e23;
       margin-left: 10px;
     }
-    nav a {
+
+    .hamburger {
+      font-size: 28px;
+      color: #fdfbf7;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -260px;
+      height: 100%;
+      width: 260px;
+      background-color: #111;
+      padding: 40px 20px;
+      transition: right 0.3s ease-in-out;
+      z-index: 999;
+    }
+
+    .sidebar.open {
+      right: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      margin: 20px 0;
       color: #fdfbf7;
       text-decoration: none;
-      margin-left: 24px;
+      font-size: 18px;
       font-weight: 500;
     }
-    .section {
-      padding: 140px 40px;
-      background: linear-gradient(to bottom right, #111, #1a1a1a);
+
+    .services-section {
+      padding: 60px 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .services-section h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #6b8e23;
       text-align: center;
     }
-    .section h2 {
-      font-size: 36px;
-      color: #556b2f;
-      margin-bottom: 30px;
+
+    .service-block {
+      margin-bottom: 40px;
     }
-    .section ul {
-      list-style: none;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: left;
-      font-size: 18px;
+
+    .service-block h2 {
+      font-size: 24px;
+      color: #d4e157;
+      margin-bottom: 10px;
     }
-    .section li {
-      margin-bottom: 20px;
+
+    .service-block p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #e0e0e0;
+    }
+
+    @media (max-width: 600px) {
+      .services-section h1 {
+        font-size: 28px;
+      }
+      .service-block h2 {
+        font-size: 20px;
+      }
     }
   </style>
 </head>
@@ -64,27 +109,70 @@
 
 <header>
   <div class="logo">
-    <img src="images/grunt-logo.png"
+    <img src="logo.png" alt="GRUNT Logo" height="50" />
+    <span>GRUNT</span>
   </div>
-  <nav>
-    <a href="index_dark_green_logo_large.html">Home</a>
-    <a href="about_dark_green_logo_large.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="pricing.html">Pricing</a>
-  </nav>
+  <div class="hamburger" onclick="toggleSidebar()">☰</div>
 </header>
 
-<section class="section">
-  <h2>What We Do</h2>
-  <ul>
-    <li>Inbox Management: We organize, respond to, and escalate emails so you don't have to.</li>
-    <li>Lead Nurturing: We follow up with inbound leads using your tone, style, and goals.</li>
-    <li>CRM Updates: We log calls, notes, updates — automatically.</li>
-    <li>Appointment Booking: Calendar syncing and scheduling handled without human errors.</li>
-    <li>Customer Follow-up: Post-delivery, post-call, post-sale — we handle it all.</li>
-    <li>Admin Automation: Expense tracking, quote building, research tasks done in minutes.</li>
-  </ul>
+<div class="sidebar" id="sidebar">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="services.html">Services</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<section class="services-section">
+  <h1>Our Services</h1>
+
+  <div class="service-block">
+    <h2>Virtual Executive Assistants</h2>
+    <p>We assign highly trained assistants to handle your scheduling, inbox, travel planning, research, and anything administrative. From CEOs to small business owners, we make sure your time is spent only on high-impact work.</p>
+  </div>
+
+  <div class="service-block">
+    <h2>Back Office Operations</h2>
+    <p>We take over the grunt work — invoicing, data entry, calendar management, CRMs, file organization, SOP documentation, and more. Think of us as your silent operational engine running in the background.</p>
+  </div>
+
+  <div class="service-block">
+    <h2>AI-Enhanced Workflows</h2>
+    <p>We custom-build automations powered by GPT and other models to simplify repetitive tasks like drafting emails, updating spreadsheets, and answering FAQs. If it’s done more than twice, we automate it.</p>
+  </div>
+
+  <div class="service-block">
+    <h2>Client & Project Coordination</h2>
+    <p>We manage client communication, follow-ups, scheduling, and task tracking — ensuring your clients feel attended to and your team stays in sync without you having to micro-manage.</p>
+  </div>
+
+  <div class="service-block">
+    <h2>Industry-Specific Services</h2>
+    <p>We tailor our services to your field. Here’s who we work best with:</p>
+    <ul style="margin-top: 10px; padding-left: 20px; line-height: 1.6;">
+      <li><strong>Startups:</strong> Founder support, investor relations, pitch deck prep</li>
+      <li><strong>Interior Designers:</strong> Purchasing, vendor follow-up, delivery coordination</li>
+      <li><strong>Law Firms:</strong> Scheduling, legal intake, document prep</li>
+      <li><strong>Medical Practices:</strong> Appointment setting, billing follow-ups, insurance processing</li>
+      <li><strong>Real Estate Agents:</strong> Listing management, lead response, open house coordination</li>
+      <li><strong>Ecommerce Stores:</strong> Customer support, returns, supplier coordination</li>
+      <li><strong>Consultants:</strong> Calendar control, proposal writing, Zoom call setup</li>
+      <li><strong>Podcasters & Creators:</strong> Episode scheduling, guest coordination, content repurposing</li>
+      <li><strong>Agencies:</strong> Onboarding, client reporting, and internal ops</li>
+    </ul>
+  </div>
+
+  <div class="service-block">
+    <h2>Custom Requests</h2>
+    <p>Don’t see what you need? That’s the point. Every GRUNT assistant is trained to adapt to your workflow, tools, and team — and we’ll build systems around how you already work.</p>
+  </div>
 </section>
+
+<script>
+  function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("open");
+  }
+</script>
 
 </body>
 </html>
