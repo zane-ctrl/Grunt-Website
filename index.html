@@ -1,140 +1,37 @@
+<!-- HOME PAGE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GRUNT | Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0f0f0f;
-      color: #fdfbf7;
-      line-height: 1.6;
-    }
-
-    header {
-      padding: 20px 60px;
-      background-color: #000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #222;
-      position: relative;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo img {
-      height: 90px;
-    }
-
-    .logo span {
-      font-size: 24px;
-      font-weight: 700;
-      color: #556b2f;
-      margin-left: 10px;
-    }
-
-    .hamburger {
-      font-size: 28px;
-      cursor: pointer;
-      color: #fdfbf7;
-    }
-
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -250px;
-      width: 250px;
-      height: 100%;
-      background-color: #111;
-      padding-top: 60px;
-      transition: 0.3s;
-      z-index: 1000;
-    }
-
-    .sidebar a {
-      display: block;
-      color: #fdfbf7;
-      padding: 16px 24px;
-      text-decoration: none;
-      font-size: 18px;
-      border-bottom: 1px solid #333;
-    }
-
-    .sidebar a:hover {
-      background-color: #222;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 28px;
-      cursor: pointer;
-      color: #fdfbf7;
-    }
-
-    .hero {
-      padding: 160px 40px;
-      text-align: center;
-      background: url('https://images.unsplash.com/photo-1531497865144-0464ef8fb9c7?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-    }
-
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 24px;
-      color: #556b2f;
-    }
-
-    .hero p {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 20px;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      border-radius: 10px;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GRUNT | Home</title>
+<link rel="stylesheet" href="style.css" />
+<script src="script.js" defer></script>
 </head>
 <body>
+<header>
+<div class="logo">
+<a href="index.html"><img src="logo.png" alt="GRUNT Logo" height="60" /></a>
+</div>
+<div class="hamburger" onclick="toggleSidebar()">&#9776;</div>
+</header>
 
-  <header>
-      <div class="logo">
-    <img src="logo.png" alt="GRUNT Logo" height="50" />
-      </div>
-    <div class="hamburger" onclick="toggleSidebar()">☰</div>
-  </header>
 
-  <div class="sidebar" id="sidebar">
-    <div class="close-btn" onclick="toggleSidebar()">×</div>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="services.html">Services</a>
-    <a href="#contact">Contact</a>
-  </div>
+<div id="sidebar" class="sidebar">
+<a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="pricing.html">Pricing</a>
+<a href="services.html">Services</a>
+<a href="#contact">Contact</a>
+</div>
 
-  <section class="hero">
-    <h1>We Handle the Grunt Work</h1>
-    <p>
-      GRUNT builds intelligent AI assistants for teams that move fast. We eliminate friction, automate workflows, and help high performers stay focused by doing everything they shouldn’t have to.
-    </p>
-  </section>
 
-  <script>
-    function toggleSidebar() {
-      const sidebar = document.getElementById('sidebar');
-      sidebar.style.right = sidebar.style.right === '0px' ? '-250px' : '0px';
-    }
-  </script>
-
+<main>
+<section class="hero">
+<h1>Work Hard. We'll Handle the Rest.</h1>
+<p>AI Assistants built by operators, for operators.</p>
+</section>
+</main>
 </body>
 </html>
-
