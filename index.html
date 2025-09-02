@@ -1,37 +1,142 @@
-<!-- HOME PAGE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>GRUNT | Home</title>
-<link rel="stylesheet" href="style.css" />
-<script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home | GRUNT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f0f0f;
+      color: #fdfbf7;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 20px 30px;
+      background-color: #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    .menu-toggle {
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 5px 0;
+      transition: 0.4s;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #111;
+      padding-top: 80px;
+      transition: right 0.4s ease-in-out;
+      z-index: 2;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 15px 25px;
+      color: #fdfbf7;
+      text-decoration: none;
+      font-size: 18px;
+      border-bottom: 1px solid #333;
+    }
+
+    .sidebar a:hover {
+      background-color: #222;
+    }
+
+    .sidebar.open {
+      right: 0;
+    }
+
+    .about-section {
+      background: url('https://images.unsplash.com/photo-1531497865144-0464ef8fb9c7?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      padding: 160px 40px 120px;
+      text-align: center;
+    }
+
+    .about-section h2 {
+      font-size: 40px;
+      color: #556b2f;
+      margin-bottom: 30px;
+    }
+
+    .about-section p {
+      max-width: 900px;
+      color: #fdfbf7;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 8px;
+      margin: 0 auto;
+      font-size: 16px;
+    }
+  </style>
 </head>
 <body>
+
 <header>
-<div class="logo">
-<a href="index.html"><img src="logo.png" alt="GRUNT Logo" height="60" /></a>
-</div>
-<div class="hamburger" onclick="toggleSidebar()">&#9776;</div>
+  <div class="logo">
+    <img src="2c84c744-e84d-48e7-9d83-e9cd330e5b0a.png" alt="GRUNT Logo" />
+  </div>
+
+  <div class="menu-toggle" onclick="toggleSidebar()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
 </header>
 
-
-<div id="sidebar" class="sidebar">
-<a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="pricing.html">Pricing</a>
-<a href="services.html">Services</a>
-<a href="#contact">Contact</a>
+<div class="sidebar" id="sidebar">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="services.html">Services</a>
+  <a href="#contact">Contact</a>
 </div>
 
-
-<main>
-<section class="hero">
-<h1>Work Hard. We'll Handle the Rest.</h1>
-<p>AI Assistants built by operators, for operators.</p>
+<section class="about-section">
+  <h2>About GRUNT</h2>
+  <p>
+    GRUNT was founded on a simple but powerful principle: business owners and high-performers shouldn’t be buried in grunt work.
+    We are not a startup chasing trends — we are a driven, hands-on service brand built by operators, for operators.
+    <br><br>
+    Our mission is to remove friction, save time, and help our clients focus entirely on what they do best — by handling what they don’t want to.
+    We believe the best systems are silent, and the best tools disappear into your workflow without ever needing to be explained.
+    <br><br>
+    Whether you're an interior designer, a law firm, or a fast-moving ecommerce team, we build intelligent assistants that know your voice, your style, and your goals — and we stop at nothing to make sure they get results.
+    <br><br>
+    At GRUNT, we aren’t afraid to do what others overlook. We work relentlessly behind the scenes, giving our clients the edge they need — not just to keep up, but to lead. If it makes your life easier, we build it. And if it needs to be done, we do it.
+  </p>
 </section>
-</main>
+
+<script>
+  function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("open");
+  }
+</script>
+
 </body>
 </html>
